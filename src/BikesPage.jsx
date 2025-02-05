@@ -8,12 +8,14 @@ import { Modal } from "./Modal";
 export function BikesPage() {
   const [bikes, setBikes] = useState([]);
   const [isBikesShowVisible, setIsBikesShowVisible] = useState(false);
+const [currentBike, setCurrentBike] = useState({});
+
 const handleIndex = () => {
   console.log('fetching data...');
-  axios.get('http://localhost:3000/index.json')
+  axios.get('http://localhost:3000/bikes.json')
   
   .then(function (response) {
-    console.log('inside the .then')
+    console.log('inside the .then');
     console.log(response.data);
     setBikes(response.data);
   })
@@ -24,6 +26,7 @@ const handleIndex = () => {
 
   const handleShow = (bike) => {
     console.log(bike);
+    setCurrentBike(bike);
     setIsBikesShowVisible(true);
   }
 
@@ -36,7 +39,7 @@ const handleIndex = () => {
     <BikesNew />
     <BikesIndex bikes={bikes} onShow={handleShow} />
     <Modal show={isBikesShowVisible} onClose={closeModal}>
-      <p>data from backend: { setBikes.brand }</p>
+      <BikesShow bike={currentBike} />
     </Modal>
     </div>
   );
