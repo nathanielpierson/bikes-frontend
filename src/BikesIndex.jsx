@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-export function BikesIndex({ bikes }) {
+export function BikesIndex({ bikes, onShow }) {
   console.log(bikes);
 
   return (
@@ -18,7 +18,7 @@ export function BikesIndex({ bikes }) {
           <div>
             <img src={bike.image_url} />
           </div>
-          <button>More info</button>
+          <button onClick={() => onShow(bike)}>More info</button>
           <br />
           <br />
           <br />
