@@ -1,18 +1,18 @@
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
-import { Header } from "./Header";
-import { BikesPage } from "./PostsPage";
+// import { Header } from "./Header";
+import { BikesPage } from "./BikesPage";
 import { SignupPage } from "./SignupPage";
 import { LoginPage } from "./LoginPage";
-import { Footer } from "./Footer";
+// import { Footer } from "./Footer";
 
 const router = createBrowserRouter([
   {
     element: (
       <div>
-        <Header />
+        {/* <Header /> */}
         <Outlet />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     ),
     children: [
