@@ -4,11 +4,15 @@ import { BikesShow } from "./BikesShow";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Modal } from "./Modal";
+import React from 'react';
+import InputColor from 'react-input-color';
 
 export function BikesPage() {
   const [bikes, setBikes] = useState([]);
   const [isBikesShowVisible, setIsBikesShowVisible] = useState(false);
-const [currentBike, setCurrentBike] = useState({});
+  const [currentBike, setCurrentBike] = useState({});
+
+  const [color, setColor] = React.useState({});
 
 const handleIndex = () => {
   console.log('fetching data...');
@@ -52,6 +56,7 @@ const handleIndex = () => {
     const closeModal = () => {
       setIsBikesShowVisible(false);
     }
+
     return (
       
       // <div>
@@ -65,14 +70,30 @@ const handleIndex = () => {
       //       <button>Update Recipe</button>
       //     </form>
       // </div>
-    <div>
-    <BikesNew onCreate={handleCreate} />
-    <BikesIndex bikes={bikes} onShow={handleShow} />
-    <Modal show={isBikesShowVisible} onClose={closeModal}>
-    <BikesShow bike={currentBike} />
-    </Modal>
+      <div>
+<div>
+      <InputColor
+        initialValue="#5e72e4"
+        onChange={setColor}
+        placement="right"
+      />
+      <div
+        style={{
+          width: 200,
+          height: 200,
+          marginTop: 20,
+          backgroundColor: color.rgba,
+        }}
+      />
+    </div>
+
+      <div>
+        <BikesNew onCreate={handleCreate} />
+        <BikesIndex bikes={bikes} onShow={handleShow} />
+        <Modal show={isBikesShowVisible} onClose={closeModal}>
+        <BikesShow bike={currentBike} />
+        </Modal>
+      </div>
     </div>
   )
 }
-
-

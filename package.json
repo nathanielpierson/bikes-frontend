@@ -10,10 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@uiw/react-color": "^2.4.5",
+    "@uiw/react-drag-event-interactive": "^2.4.5",
     "axios": "^1.7.9",
+    "coloreact": "^0.3.2",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-input-color": "^4.0.1",
     "react-router": "^7.4.1",
     "react-router-dom": "^7.4.1"
   },
